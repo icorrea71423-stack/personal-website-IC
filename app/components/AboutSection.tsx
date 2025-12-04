@@ -20,13 +20,16 @@ const ImageCarousel = () => {
   ];
 
   // Auto-slide every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 3000);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  }, 3000);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, [images.length]);
+
 
   return (
     <div className="relative w-full h-[450px] overflow-hidden rounded-xl bg-black">
